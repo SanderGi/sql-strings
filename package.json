@@ -1,0 +1,78 @@
+{
+    "name": "sql-strings",
+    "description": "Write SQL-injection protected SQL statements using template strings!",
+    "version": "1.0.0",
+    "author": "Alexander Metzger <alexander.le@outlook.dk> (https://sandergi.github.io/)",
+    "bugs": {
+        "url": "https://github.com/SanderGi/sql-strings/issues"
+    },
+    "config": {
+        "main": "./lib/SQL.js"
+    },
+    "devDependencies": {
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "fixpack": "^4.0.0",
+        "husky": "^9.0.11",
+        "lint-staged": "^15.2.2",
+        "mysql": "^2.18.1",
+        "pg": "^8.11.3",
+        "prettier": "^3.2.5",
+        "sequelize": "^6.37.1",
+        "sql-strings": "file:.",
+        "sqlite3": "^5.1.7",
+        "typescript": "^5.4.3"
+    },
+    "engines": {
+        "node": ">= 18.17.0"
+    },
+    "files": [
+        "package.json",
+        "README.md",
+        "LICENSE",
+        "lib",
+        "types"
+    ],
+    "homepage": "https://github.com/SanderGi/sql-strings#readme",
+    "keywords": [
+        "es6",
+        "mysql",
+        "pg",
+        "postgresql",
+        "prepared",
+        "query",
+        "sequelize",
+        "sql",
+        "sql-injection",
+        "sqlite",
+        "statement",
+        "strings",
+        "tagged",
+        "template"
+    ],
+    "license": "MIT",
+    "lint-staged": {
+        "*.js,*.mjs,*.cjs": [
+            "npx eslint --fix",
+            "npx prettier --write"
+        ],
+        "!(*.js,*.mjs,*.cjs)": "npx prettier --write --ignore-unknown",
+        "package.json": "npx fixpack"
+    },
+    "main": "lib/SQL.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SanderGi/sql-strings.git"
+    },
+    "scripts": {
+        "badges": "node scripts/badges.mjs",
+        "build": "npm run types && npm run badges",
+        "format": "(npx fixpack || true) && (npx eslint $npm_package_config_main --fix || true) && npx prettier . --write",
+        "lint": "npx eslint-config-prettier $npm_package_config_main && npx eslint $npm_package_config_main && npx prettier . --check",
+        "prepack": "npm run format && npm run build && npm run lint && npm test",
+        "prepare": "husky",
+        "test": "node --test --experimental-test-coverage --test-reporter=spec --test-reporter=tap --test-reporter-destination=stdout --test-reporter-destination=tap.info ./test/test_*.mjs",
+        "types": "npx -p typescript tsc $npm_package_config_main --declaration --allowJs --emitDeclarationOnly --outDir types"
+    },
+    "types": "types/SQL.d.ts"
+}

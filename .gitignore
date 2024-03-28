@@ -1,0 +1,10 @@
+# npm
+node_modules
+*.log
+*.gz
+
+# Coverage
+tap.info
+
+# OS generated files
+.DS_Store
