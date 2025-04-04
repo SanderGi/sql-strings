@@ -4,6 +4,7 @@
 [![FileCount](./.badges/file-count.svg)](./.badges/file-count.svg)
 [![Tests](./.badges/tests.svg)](./.badges/tests.svg)
 [![Coverage](./.badges/coverage.svg)](./.badges/coverage.svg)
+[![maintenance-status](https://img.shields.io/badge/maintenance-as--is-yellow.svg)](https://gist.github.com/taiki-e/ad73eaea17e2e0372efb76ef6b38f17b)
 
 Write SQL-injection protected SQL statements using template strings. Useful for longer queries and dynamically created queries where keeping the SQL and bind parameters separate becomes disorienting.
 
